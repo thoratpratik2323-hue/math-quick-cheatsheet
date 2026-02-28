@@ -5,27 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Quick Cheatsheet | Last Minute Hacks | Target 80/80</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@500;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;700&display=swap"
         rel="stylesheet">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            --bg-color: #050505;
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --accent: #facc15;
-            /* Electric Yellow */
-            --card-bg: #111111;
-            --border: 1px solid rgba(250, 204, 21, 0.2);
-            --neon-glow: 0 0 15px rgba(250, 204, 21, 0.3);
+            --bg-color: #020617;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-yellow: #facc15;
+            --accent-cyan: #22d3ee;
+            --accent-pink: #f472b6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -33,36 +43,39 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
             background-image:
-                linear-gradient(rgba(250, 204, 21, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(250, 204, 21, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+                radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(244, 114, 182, 0.05) 0%, transparent 40%);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+        }
+
+        .back-nav {
+            margin-bottom: 2rem;
         }
 
         .btn-back {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
+            font-weight: 600;
             transition: 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: var(--glass-border);
         }
 
         .btn-back:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+            color: var(--accent-cyan);
+            background: rgba(34, 211, 238, 0.1);
             transform: translateX(-5px);
         }
 
@@ -71,237 +84,394 @@
             margin-bottom: 4rem;
         }
 
-        h1 {
+        .main-title {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 800;
-            color: var(--accent);
-            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
             letter-spacing: -2px;
-            line-height: 1;
         }
 
         .subtitle {
-            color: var(--text-muted);
             font-size: 1.2rem;
-            margin-top: 1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
+        /* Search/Filter Mockup style */
+        .search-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            background: var(--accent-cyan);
+            color: #000;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        }
+
+        /* Grid Layout */
         .cheatsheet-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .hack-card {
             background: var(--card-bg);
-            border: var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: 0.3s;
+            backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
 
+        .hack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-cyan);
+            opacity: 0.5;
+        }
+
         .hack-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--neon-glow);
-            transform: scale(1.02);
+            transform: translateY(-10px);
+            border-color: rgba(34, 211, 238, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .hack-card h3 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            color: var(--accent-cyan);
         }
 
-        .hack-card ul {
+        .hack-list {
             list-style: none;
         }
 
-        .hack-card li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+        .hack-item {
+            margin-bottom: 1.2rem;
             position: relative;
-            font-size: 0.95rem;
-            color: #e5e7eb;
+            padding-left: 2rem;
         }
 
-        .hack-card li::before {
-            content: '⚡';
+        .hack-item::before {
+            content: '✦';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
         }
 
-        .math-box {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.8rem;
-            border-radius: 6px;
+        .hack-label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+
+        .formula-box {
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
             margin: 0.5rem 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-align: center;
+            color: var(--accent-cyan);
+        }
+
+        .pro-tip {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(250, 204, 21, 0.1);
+            border-left: 3px solid var(--accent-yellow);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--accent-yellow);
         }
 
         .warning-tag {
             display: inline-block;
             background: #ef4444;
-            color: #fff;
+            color: white;
             font-size: 0.7rem;
             font-weight: 800;
-            padding: 0.1rem 0.4rem;
+            padding: 0.2rem 0.5rem;
             border-radius: 4px;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
 
-        .pro-tip {
-            background: rgba(250, 204, 21, 0.1);
-            border: 1px dashed var(--accent);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--accent);
+        footer {
+            text-align: center;
+            margin-top: 6rem;
+            padding: 4rem 2rem;
+            border-top: var(--glass-border);
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 5rem;
-            padding: 3rem;
-            border-top: 1px solid rgba(250, 204, 21, 0.1);
+        .footer-text {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--text-muted);
         }
 
-        .mjx-chtml {
-            color: white !important;
+        .heart {
+            color: #ef4444;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .cheatsheet-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
-        <a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="btn-back">← Back to Hub</a>
+        <nav class="back-nav">
+            <a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="btn-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Command Center
+            </a>
+        </nav>
 
         <header>
-            <h1>Quick Cheatsheet ⚡</h1>
-            <p class="subtitle">Last Minute Revision Hacks for Ishu's 80/80 Target</p>
+            <h1 class="main-title">Quick Cheatsheet ⚡</h1>
+            <p class="subtitle">Ultimate Last-Minute Revision Hacks & Shortcuts for Ishu's Mission 100/100</p>
         </header>
 
+        <div class="search-area">
+            <div class="category-tabs">
+                <div class="tab active">All Hacks</div>
+                <div class="tab">Calculus</div>
+                <div class="tab">Vectors/3D</div>
+                <div class="tab">Matrices</div>
+                <div class="tab">Probability</div>
+                <div class="tab">Algebra</div>
+            </div>
+        </div>
+
         <div class="cheatsheet-grid">
-
-            <!-- INTEGRATION SUBSTITUTIONS -->
+            <!-- CALCULUS: INTEGRATION -->
             <div class="hack-card">
-                <h3>Standard Substitutions</h3>
-                <ul>
-                    <li>$\sqrt{a^2 - x^2}$ : Put <span class="highlight">$x = a\sin\theta$</span></li>
-                    <li>$\sqrt{a^2 + x^2}$ : Put <span class="highlight">$x = a\tan\theta$</span></li>
-                    <li>$\sqrt{x^2 - a^2}$ : Put <span class="highlight">$x = a\sec\theta$</span></li>
-                    <li>$\sqrt{\frac{a-x}{a+x}}$ : Put <span class="highlight">$x = a\cos2\theta$</span></li>
-                </ul>
-                <div class="pro-tip">Substitution is the key to solving 90% of Inverse Trigo and Calculus long
-                    questions!</div>
+                <h3>Integration Speed-Dial</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Infinite Series Trick</span>
+                        If $y = \sqrt{f(x) + \sqrt{f(x) + \dots\infty}}$, then
+                        <div class="formula-box">$\frac{dy}{dx} = \frac{f'(x)}{2y-1}$</div>
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Definite Power Hack</span>
+                        <div class="formula-box">$\int_0^{\pi/2} \frac{\sqrt{\sin x}}{\sqrt{\sin x} + \sqrt{\cos x}} dx
+                            = \frac{\pi}{4}$</div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">True for any power $n$: $(\sin x)^n /
+                            [(\sin x)^n + (\cos x)^n]$</p>
+                    </div>
+                </div>
+                <div class="pro-tip">King's Property ($P_4$) solves 80% of Definite Integrals board questions!</div>
             </div>
 
-            <!-- TRIGONOMETRY HACKS -->
+            <!-- CALCULUS: AREA (AOI) -->
             <div class="hack-card">
-                <h3>Calculus Trigo Life-Savers</h3>
-                <ul>
-                    <li>$1 - \cos 2x = 2\sin^2 x$</li>
-                    <li>$1 + \cos 2x = 2\cos^2 x$</li>
-                    <li>$\sin 2x = 2\sin x \cos x = \frac{2\tan x}{1+\tan^2 x}$</li>
-                    <li>$\cos 2x = \cos^2 x - \sin^2 x = \frac{1-\tan^2 x}{1+\tan^2 x}$</li>
-                </ul>
-                <div class="warning-tag">CRITICAL</div>
-                <p style="font-size: 0.85rem;">Don't forget: $\sin^3 x = \frac{3\sin x - \sin 3x}{4}$</p>
+                <h3>AOI Area Hacks</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Parabola-Parabola Area</span>
+                        Area between $y^2 = 4ax$ and $x^2 = 4by$:
+                        <div class="formula-box">Area = $\frac{16ab}{3}$</div>
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Parabola-Line Area</span>
+                        Area between $y^2 = 4ax$ and $y = mx$:
+                        <div class="formula-box">Area = $\frac{8a^2}{3m^3}$</div>
+                    </div>
+                </div>
+                <div class="warning-tag">Time Saver</div>
             </div>
 
-            <!-- DETERMINANT SHORTCUTS -->
+            <!-- MATRICES & DETERMINANTS -->
             <div class="hack-card">
-                <h3>Matrix & Det Hacks</h3>
-                <ul>
-                    <li>$|kA| = k^n|A|$ ($n$ = order)</li>
-                    <li>$|adj A| = |A|^{n-1}$</li>
-                    <li>$|A \cdot adj A| = |A|^n$</li>
-                    <li>Skew-symmetric matrix of ODD order always has determinant = 0.</li>
-                </ul>
-                <div class="math-box">
-                    $A^{-1} = \frac{1}{|A|} adj A$
+                <h3>Matrix Mind-Benders</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Determinant Factor Hack</span>
+                        $|adj A| = |A|^{n-1}$
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Zero Determinant Cases</span>
+                        1. Skew-Symmetric matrix of Odd Order.
+                        2. Rotation Matrix: $\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+                        \end{bmatrix}$ (Det = 1).
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Shortcut for Inverse (2x2)</span>
+                        Swap diagonals, change signs of off-diagonals, divide by $|A|$.
+                    </div>
                 </div>
             </div>
 
-            <!-- VECTOR PROJECTION -->
+            <!-- VECTORS & 3D GEOMETRY -->
             <div class="hack-card">
-                <h3>Vector Super-Fast</h3>
-                <ul>
-                    <li>Projection of $\vec{a}$ on $\vec{b} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$</li>
-                    <li>Unit vector perpendicular to BOTH $\vec{a}$ and $\vec{b} = \pm \frac{\vec{a} \times
-                        \vec{b}}{|\vec{a} \times \vec{b}|}$</li>
-                    <li>If $\vec{a}, \vec{b}, \vec{c}$ are coplanar $\implies [\vec{a} \vec{b} \vec{c}] = 0$.</li>
-                </ul>
-            </div>
-
-            <!-- 3D DISTANCE HACK -->
-            <div class="hack-card">
-                <h3>3D Shortcut</h3>
-                <p class="warning-tag">100% Asked</p>
-                <ul>
-                    <li>Distance of point $(x_1, y_1, z_1)$ from plane $ax+by+cz+d=0$:</li>
-                    <div class="math-box">
-                        $d = \frac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2+b^2+c^2}}$
+                <h3>Vector & 3D Shortcuts</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Shortest Distance Hack</span>
+                        Distance between parallel lines:
+                        <div class="formula-box">$d = \frac{|(\vec{a}_2 - \vec{a}_1) \times \vec{b}|}{|\vec{b}|}$</div>
                     </div>
-                    <li>Angle between 2 planes = Angle between their normals.</li>
-                </ul>
+                    <div class="hack-item">
+                        <span class="hack-label">Perpendicular Distance</span>
+                        Point $(x_1, y_1, z_1)$ to plane $Ax+By+Cz+D=0$:
+                        <div class="formula-box">$\frac{|Ax_1 + By_1 + Cz_1 + D|}{\sqrt{A^2+B^2+C^2}}$</div>
+                    </div>
+                </div>
+                <div class="pro-tip">Direction Ratios $(a,b,c)$ are your best friends. Normalize them to get Direction
+                    Cosines $(l,m,n)$.</div>
             </div>
 
-            <!-- PROBABILITY HACKS -->
+            <!-- PROBABILITY -->
             <div class="hack-card">
                 <h3>Probability Logic</h3>
-                <ul>
-                    <li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
-                    <li>Independent Events: $P(A \cap B) = P(A) \cdot P(B)$</li>
-                    <li>$P(A|B) + P(A'|B) = 1$</li>
-                </ul>
-                <div class="pro-tip">If events are mutually exclusive, $P(A \cap B) = 0$.</div>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Bayes' Theorem Visual</span>
+                        Think of a tree diagram.
+                        $P(Ei|A) = \frac{\text{Path through } Ei}{\text{Total sum of all paths}}$
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Independent Events</span>
+                        $P(A \cap B) = P(A) \cdot P(B)$.
+                        $P(A \cup B) = 1 - P(A')P(B')$.
+                    </div>
+                </div>
             </div>
 
-            <!-- DERIVATIVE HACKS -->
+            <!-- INVERSE TRIGO & RELATIONS -->
             <div class="hack-card">
-                <h3>Limit & Diff Hacks</h3>
-                <ul>
-                    <li>$\frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}$</li>
-                    <li>$\frac{d}{dx}(|x|) = \frac{x}{|x|}$ (for $x \neq 0$)</li>
-                    <li>$\frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}$</li>
-                </ul>
-                <div class="pro-tip">If $y = \sqrt{f(x) + \sqrt{f(x) + \dots}}$, then $\frac{dy}{dx} =
-                    \frac{f'(x)}{2y-1}$.</div>
+                <h3>ITF & Relations Counting</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Function Counting</span>
+                        Total Functions $A(n) \to B(m) = m^n$.
+                        One-One Functions = $^mP_n$ (if $m \ge n$).
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">ITF Principal Range</span>
+                        $\sin^{-1}, \tan^{-1}, \csc^{-1} \to [-\pi/2, \pi/2]$.
+                        $\cos^{-1}, \cot^{-1}, \sec^{-1} \to [0, \pi]$.
+                    </div>
+                </div>
+                <div class="warning-tag">Avoid SILLY MISTAKES</div>
             </div>
-
-            <!-- RELATIONS HACK -->
-            <div class="hack-card">
-                <h3>Relation Counting</h3>
-                <ul>
-                    <li>Total relations on set $A$(n) = $2^{n^2}$</li>
-                    <li>Total Reflexive relations = $2^{n^2 - n}$</li>
-                    <li>Total Symmetric relations = $2^{n(n+1)/2}$</li>
-                </ul>
-            </div>
-
         </div>
 
-        <div class="footer">
-            <p><strong>Quick Revision Shield</strong> - Built for Ishu ⚡</p>
-            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Shortcuts used by toppers to save time! 80/80 Target. 🎯
-            </p>
-        </div>
+        <footer>
+            <div class="footer-text">Built with <span class="heart">❤</span> by Pratik — for Ishu's Board Mission 2026
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-muted);">Focus. Believe. Conquer. You've got this!</p>
+        </footer>
     </div>
 
+    <script>
+        // Simple filter logic for mockup
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // MathJax notification
+        window.addEventListener('load', () => {
+            if (window.MathJax) {
+                MathJax.typesetPromise().then(() => {
+                    console.log("Cheatsheet Math rendered!");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
