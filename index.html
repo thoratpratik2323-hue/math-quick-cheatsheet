@@ -434,44 +434,96 @@
                     <div class="hack-item">
                         <span class="hack-label">Function Counting</span>
                         Total Functions $A(n) \to B(m) = m^n$.
-                        One-One Functions = $^mP_n$ (if $m \ge n$).
                     </div>
                     <div class="hack-item">
                         <span class="hack-label">ITF Principal Range</span>
-                        $\sin^{-1}, \tan^{-1}, \csc^{-1} \to [-\pi/2, \pi/2]$.
+                        $\sin^{-1}, \tan^{-1}, \csc^{-1} \to [-\pi/2, \pi/2]$.<br>
                         $\cos^{-1}, \cot^{-1}, \sec^{-1} \to [0, \pi]$.
                     </div>
                 </div>
                 <div class="warning-tag">Avoid SILLY MISTAKES</div>
             </div>
+
+            <!-- APPLICATION OF DERIVATIVES (AOD) -->
+            <div class="hack-card">
+                <h3>AOD Mastery</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Slope Hack</span>
+                        Slope of Normal = $-1 / (dy/dx)$.
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Increasing/Decreasing</span>
+                        $f'(x) > 0 \implies$ Increasing.
+                    </div>
+                    <div class="hack-item">
+                        <span class="hack-label">Maxima/Minima</span>
+                        $f''(x) < 0$ at stationary point $\implies$ Local Maxima. </div>
+                    </div>
+                </div>
+
+                <!-- DIFFERENTIAL EQUATIONS -->
+                <div class="hack-card">
+                    <h3>Differential Equations</h3>
+                    <div class="hack-list">
+                        <div class="hack-item">
+                            <span class="hack-label">Integrating Factor (I.F.)</span>
+                            For $\frac{dy}{dx} + Py = Q$:
+                            <div class="formula-box">$I.F. = e^{\int P dx}$</div>
+                        </div>
+                        <div class="hack-item">
+                            <span class="hack-label">Degree Pitfall</span>
+                            Degree is NOT defined if equation is not a polynomial in derivatives (e.g., $\sin(dy/dx)$).
+                        </div>
+                    </div>
+                    <div class="pro-tip">Solution: $y \cdot (I.F.) = \int Q \cdot (I.F.) dx + C$</div>
+                </div>
+
+                <!-- LINEAR PROGRAMMING (LPP) -->
+                <div class="hack-card">
+                    <h3>LPP Logic Card</h3>
+                    <div class="hack-list">
+                        <div class="hack-item">
+                            <span class="hack-label">Corner Point Theorem</span>
+                            Optimal value ALWAYS occurs at corner points of the feasible region.
+                        </div>
+                        <div class="hack-item">
+                            <span class="hack-label">Unbounded Warning</span>
+                            If region is unbounded, Max/Min value might not exist! Check the inequality $Ax + By >
+                            Z_{max}$.
+                        </div>
+                    </div>
+                    <div class="warning-tag">Graphic method only</div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-text">Built with <span class="heart">❤</span> by Pratik — for Ishu's Board Mission
+                    2026
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Focus. Believe. Conquer. You've got this!</p>
+            </footer>
         </div>
 
-        <footer>
-            <div class="footer-text">Built with <span class="heart">❤</span> by Pratik — for Ishu's Board Mission 2026
-            </div>
-            <p style="margin-top: 1rem; color: var(--text-muted);">Focus. Believe. Conquer. You've got this!</p>
-        </footer>
-    </div>
-
-    <script>
-        // Simple filter logic for mockup
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-            });
-        });
-
-        // MathJax notification
-        window.addEventListener('load', () => {
-            if (window.MathJax) {
-                MathJax.typesetPromise().then(() => {
-                    console.log("Cheatsheet Math rendered!");
+        <script>
+            // Simple filter logic for mockup
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
                 });
-            }
-        });
-    </script>
+            });
+
+            // MathJax notification
+            window.addEventListener('load', () => {
+                if (window.MathJax) {
+                    MathJax.typesetPromise().then(() => {
+                        console.log("Cheatsheet Math rendered!");
+                    });
+                }
+            });
+        </script>
 </body>
 
 </html>
