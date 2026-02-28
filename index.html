@@ -332,198 +332,181 @@
         </div>
 
         <div class="cheatsheet-grid">
-            <!-- CALCULUS: INTEGRATION -->
+            <!-- 1. RELATIONS & FUNCTIONS -->
             <div class="hack-card">
-                <h3>Integration Speed-Dial</h3>
+                <h3>1. Relations & Functions</h3>
                 <div class="hack-list">
                     <div class="hack-item">
-                        <span class="hack-label">Infinite Series Trick</span>
-                        If $y = \sqrt{f(x) + \sqrt{f(x) + \dots\infty}}$, then
-                        <div class="formula-box">$\frac{dy}{dx} = \frac{f'(x)}{2y-1}$</div>
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Definite Power Hack</span>
-                        <div class="formula-box">$\int_0^{\pi/2} \frac{\sqrt{\sin x}}{\sqrt{\sin x} + \sqrt{\cos x}} dx
-                            = \frac{\pi}{4}$</div>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">True for any power $n$: $(\sin x)^n /
-                            [(\sin x)^n + (\cos x)^n]$</p>
-                    </div>
-                </div>
-                <div class="pro-tip">King's Property ($P_4$) solves 80% of Definite Integrals board questions!</div>
-            </div>
-
-            <!-- CALCULUS: AREA (AOI) -->
-            <div class="hack-card">
-                <h3>AOI Area Hacks</h3>
-                <div class="hack-list">
-                    <div class="hack-item">
-                        <span class="hack-label">Parabola-Parabola Area</span>
-                        Area between $y^2 = 4ax$ and $x^2 = 4by$:
-                        <div class="formula-box">Area = $\frac{16ab}{3}$</div>
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Parabola-Line Area</span>
-                        Area between $y^2 = 4ax$ and $y = mx$:
-                        <div class="formula-box">Area = $\frac{8a^2}{3m^3}$</div>
-                    </div>
-                </div>
-                <div class="warning-tag">Time Saver</div>
-            </div>
-
-            <!-- MATRICES & DETERMINANTS -->
-            <div class="hack-card">
-                <h3>Matrix Mind-Benders</h3>
-                <div class="hack-list">
-                    <div class="hack-item">
-                        <span class="hack-label">Determinant Factor Hack</span>
-                        $|adj A| = |A|^{n-1}$
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Zero Determinant Cases</span>
-                        1. Skew-Symmetric matrix of Odd Order.
-                        2. Rotation Matrix: $\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
-                        \end{bmatrix}$ (Det = 1).
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Shortcut for Inverse (2x2)</span>
-                        Swap diagonals, change signs of off-diagonals, divide by $|A|$.
+                        <span class="hack-label">Relation Counting</span>
+                        Total Relations = $2^{n^2}$.<br>
+                        Reflexive Relations = $2^{n^2-n}$.
                     </div>
                 </div>
             </div>
 
-            <!-- VECTORS & 3D GEOMETRY -->
+            <!-- 2. INVERSE TRIGO -->
             <div class="hack-card">
-                <h3>Vector & 3D Shortcuts</h3>
+                <h3>2. Inverse Trigo</h3>
                 <div class="hack-list">
                     <div class="hack-item">
-                        <span class="hack-label">Shortest Distance Hack</span>
-                        Distance between parallel lines:
-                        <div class="formula-box">$d = \frac{|(\vec{a}_2 - \vec{a}_1) \times \vec{b}|}{|\vec{b}|}$</div>
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Perpendicular Distance</span>
-                        Point $(x_1, y_1, z_1)$ to plane $Ax+By+Cz+D=0$:
-                        <div class="formula-box">$\frac{|Ax_1 + By_1 + Cz_1 + D|}{\sqrt{A^2+B^2+C^2}}$</div>
-                    </div>
-                </div>
-                <div class="pro-tip">Direction Ratios $(a,b,c)$ are your best friends. Normalize them to get Direction
-                    Cosines $(l,m,n)$.</div>
-            </div>
-
-            <!-- PROBABILITY -->
-            <div class="hack-card">
-                <h3>Probability Logic</h3>
-                <div class="hack-list">
-                    <div class="hack-item">
-                        <span class="hack-label">Bayes' Theorem Visual</span>
-                        Think of a tree diagram.
-                        $P(Ei|A) = \frac{\text{Path through } Ei}{\text{Total sum of all paths}}$
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Independent Events</span>
-                        $P(A \cap B) = P(A) \cdot P(B)$.
-                        $P(A \cup B) = 1 - P(A')P(B')$.
+                        <span class="hack-label">Principal Range</span>
+                        $\sin^{-1}, \tan^{-1} \to [-\pi/2, \pi/2]$<br>
+                        $\cos^{-1}, \cot^{-1} \to [0, \pi]$
                     </div>
                 </div>
             </div>
 
-            <!-- INVERSE TRIGO & RELATIONS -->
+            <!-- 3. MATRICES -->
             <div class="hack-card">
-                <h3>ITF & Relations Counting</h3>
+                <h3>3. Matrices</h3>
                 <div class="hack-list">
                     <div class="hack-item">
-                        <span class="hack-label">Function Counting</span>
-                        Total Functions $A(n) \to B(m) = m^n$.
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">ITF Principal Range</span>
-                        $\sin^{-1}, \tan^{-1}, \csc^{-1} \to [-\pi/2, \pi/2]$.<br>
-                        $\cos^{-1}, \cot^{-1}, \sec^{-1} \to [0, \pi]$.
+                        <span class="hack-label">Symmetry</span>
+                        $A = A^T$ (Symmetric).<br>
+                        $A = -A^T$ (Skew-Symmetric).
                     </div>
                 </div>
-                <div class="warning-tag">Avoid SILLY MISTAKES</div>
             </div>
 
-            <!-- APPLICATION OF DERIVATIVES (AOD) -->
+            <!-- 4. DETERMINANTS -->
             <div class="hack-card">
-                <h3>AOD Mastery</h3>
+                <h3>4. Determinants</h3>
                 <div class="hack-list">
                     <div class="hack-item">
-                        <span class="hack-label">Slope Hack</span>
+                        <span class="hack-label">Properties</span>
+                        $|adj A| = |A|^{n-1}$<br>
+                        $|kA| = k^n|A|$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. CONTINUITY & DIFF -->
+            <div class="hack-card">
+                <h3>5. Continuity & Diff</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Formula</span>
+                        If $y = \sqrt{f(x) + \dots}$, $\frac{dy}{dx} = \frac{f'(x)}{2y-1}$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. APPLICATION OF DERIVATIVES -->
+            <div class="hack-card">
+                <h3>6. App. of Derivatives</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Tangent/Normal</span>
                         Slope of Normal = $-1 / (dy/dx)$.
                     </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Increasing/Decreasing</span>
-                        $f'(x) > 0 \implies$ Increasing.
-                    </div>
-                    <div class="hack-item">
-                        <span class="hack-label">Maxima/Minima</span>
-                        $f''(x) < 0$ at stationary point $\implies$ Local Maxima. </div>
-                    </div>
-                </div>
-
-                <!-- DIFFERENTIAL EQUATIONS -->
-                <div class="hack-card">
-                    <h3>Differential Equations</h3>
-                    <div class="hack-list">
-                        <div class="hack-item">
-                            <span class="hack-label">Integrating Factor (I.F.)</span>
-                            For $\frac{dy}{dx} + Py = Q$:
-                            <div class="formula-box">$I.F. = e^{\int P dx}$</div>
-                        </div>
-                        <div class="hack-item">
-                            <span class="hack-label">Degree Pitfall</span>
-                            Degree is NOT defined if equation is not a polynomial in derivatives (e.g., $\sin(dy/dx)$).
-                        </div>
-                    </div>
-                    <div class="pro-tip">Solution: $y \cdot (I.F.) = \int Q \cdot (I.F.) dx + C$</div>
-                </div>
-
-                <!-- LINEAR PROGRAMMING (LPP) -->
-                <div class="hack-card">
-                    <h3>LPP Logic Card</h3>
-                    <div class="hack-list">
-                        <div class="hack-item">
-                            <span class="hack-label">Corner Point Theorem</span>
-                            Optimal value ALWAYS occurs at corner points of the feasible region.
-                        </div>
-                        <div class="hack-item">
-                            <span class="hack-label">Unbounded Warning</span>
-                            If region is unbounded, Max/Min value might not exist! Check the inequality $Ax + By >
-                            Z_{max}$.
-                        </div>
-                    </div>
-                    <div class="warning-tag">Graphic method only</div>
                 </div>
             </div>
 
-            <footer>
-                <div class="footer-text">Built with <span class="heart">❤</span> by Pratik — for Ishu's Board Mission
-                    2026
+            <!-- 7. INTEGRALS -->
+            <div class="hack-card">
+                <h3>7. Integrals</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Special Case</span>
+                        $\int_0^{\pi/2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx = \pi/4$
+                    </div>
                 </div>
-                <p style="margin-top: 1rem; color: var(--text-muted);">Focus. Believe. Conquer. You've got this!</p>
-            </footer>
+            </div>
+
+            <!-- 8. APPLICATION OF INTEGRALS -->
+            <div class="hack-card">
+                <h3>8. App. of Integrals</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Area (Parabola)</span>
+                        Between $y^2=4ax, x^2=4by \implies 16ab/3$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. DIFFERENTIAL EQUATIONS -->
+            <div class="hack-card">
+                <h3>9. Differential Eq.</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Linear Solution</span>
+                        $I.F. = e^{\int P dx}$. Sol: $y \cdot I.F. = \int Q \cdot I.F. dx + C$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. VECTOR ALGEBRA -->
+            <div class="hack-card">
+                <h3>10. Vector Algebra</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Projection</span>
+                        Proj of $\vec{a}$ on $\vec{b} = (\vec{a} \cdot \vec{b})/|\vec{b}|$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. 3D GEOMETRY -->
+            <div class="hack-card">
+                <h3>11. 3D Geometry</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Shortest Distance</span>
+                        $d = \frac{|(\vec{a}_2-\vec{a}_1)\cdot(\vec{b}_1\times\vec{b}_2)|}{|\vec{b}_1\times\vec{b}_2|}$
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. LINEAR PROGRAMMING -->
+            <div class="hack-card">
+                <h3>12. Linear Programming</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Feasible Region</span>
+                        Check Corner Points for Max/Min value.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. PROBABILITY -->
+            <div class="hack-card">
+                <h3>13. Probability</h3>
+                <div class="hack-list">
+                    <div class="hack-item">
+                        <span class="hack-label">Bayes' Theorem</span>
+                        $P(Ei|A) = \frac{P(Ei)P(A|Ei)}{\sum P(Ej)P(A|Ej)}$
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <script>
-            // Simple filter logic for mockup
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                });
-            });
+        <footer>
+            <div class="footer-text">Built with <span class="heart">❤</span> by Pratik — for Ishu's Board Mission
+                2026
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-muted);">Focus. Believe. Conquer. You've got this!</p>
+        </footer>
+    </div>
 
-            // MathJax notification
-            window.addEventListener('load', () => {
-                if (window.MathJax) {
-                    MathJax.typesetPromise().then(() => {
-                        console.log("Cheatsheet Math rendered!");
-                    });
-                }
+    <script>
+        // Simple filter logic for mockup
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
             });
-        </script>
+        });
+
+        // MathJax notification
+        window.addEventListener('load', () => {
+            if (window.MathJax) {
+                MathJax.typesetPromise().then(() => {
+                    console.log("Cheatsheet Math rendered!");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
