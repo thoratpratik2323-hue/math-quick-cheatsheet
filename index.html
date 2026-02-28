@@ -4,24 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Cheatsheet | Ishu's Math Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    <title>Math Quick Cheatsheet | Last Minute Hacks | Target 80/80</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            --bg: #05080f;
-            --surface: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.08);
-
-            --primary: {
-                    {
-                    COLOR
-                }
-            }
-
-            ;
-            --text: #e2e8f0;
-            --muted: #64748b;
+            --bg-color: #050505;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --accent: #facc15;
+            /* Electric Yellow */
+            --card-bg: #111111;
+            --border: 1px solid rgba(250, 204, 21, 0.2);
+            --neon-glow: 0 0 15px rgba(250, 204, 21, 0.3);
         }
 
         * {
@@ -31,86 +29,279 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image:
+                linear-gradient(rgba(250, 204, 21, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(250, 204, 21, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        header {
             text-align: center;
-            background: var(--surface);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .cheatsheet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hack-card {
+            background: var(--card-bg);
+            border: var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .container::before {
-            content: '';
+        .hack-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--neon-glow);
+            transform: scale(1.02);
+        }
+
+        .hack-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hack-card ul {
+            list-style: none;
+        }
+
+        .hack-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #e5e7eb;
+        }
+
+        .hack-card li::before {
+            content: '⚡';
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary);
+            color: var(--accent);
         }
 
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        p {
-            color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 2rem;
+        .math-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 0.5rem 0;
             font-size: 1.1rem;
+            text-align: center;
         }
 
-        .btn {
+        .warning-tag {
             display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            background: #ef4444;
             color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        .btn:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
-            transform: translateY(-2px);
+        .pro-tip {
+            background: rgba(250, 204, 21, 0.1);
+            border: 1px dashed var(--accent);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 3rem;
+            border-top: 1px solid rgba(250, 204, 21, 0.1);
+            color: var(--text-muted);
+        }
+
+        .mjx-chtml {
+            color: white !important;
         }
     </style>
 </head>
 
 <body>
+
     <div class="container">
-        <div class="icon"></div>
-        <h1>Quick Cheatsheet</h1>
-        <p>Last-minute super fast revision notes.</p>
-        <a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="btn">â† Back to Math Hub</a>
+        <a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="btn-back">← Back to Hub</a>
+
+        <header>
+            <h1>Quick Cheatsheet ⚡</h1>
+            <p class="subtitle">Last Minute Revision Hacks for Ishu's 80/80 Target</p>
+        </header>
+
+        <div class="cheatsheet-grid">
+
+            <!-- INTEGRATION SUBSTITUTIONS -->
+            <div class="hack-card">
+                <h3>Standard Substitutions</h3>
+                <ul>
+                    <li>$\sqrt{a^2 - x^2}$ : Put <span class="highlight">$x = a\sin\theta$</span></li>
+                    <li>$\sqrt{a^2 + x^2}$ : Put <span class="highlight">$x = a\tan\theta$</span></li>
+                    <li>$\sqrt{x^2 - a^2}$ : Put <span class="highlight">$x = a\sec\theta$</span></li>
+                    <li>$\sqrt{\frac{a-x}{a+x}}$ : Put <span class="highlight">$x = a\cos2\theta$</span></li>
+                </ul>
+                <div class="pro-tip">Substitution is the key to solving 90% of Inverse Trigo and Calculus long
+                    questions!</div>
+            </div>
+
+            <!-- TRIGONOMETRY HACKS -->
+            <div class="hack-card">
+                <h3>Calculus Trigo Life-Savers</h3>
+                <ul>
+                    <li>$1 - \cos 2x = 2\sin^2 x$</li>
+                    <li>$1 + \cos 2x = 2\cos^2 x$</li>
+                    <li>$\sin 2x = 2\sin x \cos x = \frac{2\tan x}{1+\tan^2 x}$</li>
+                    <li>$\cos 2x = \cos^2 x - \sin^2 x = \frac{1-\tan^2 x}{1+\tan^2 x}$</li>
+                </ul>
+                <div class="warning-tag">CRITICAL</div>
+                <p style="font-size: 0.85rem;">Don't forget: $\sin^3 x = \frac{3\sin x - \sin 3x}{4}$</p>
+            </div>
+
+            <!-- DETERMINANT SHORTCUTS -->
+            <div class="hack-card">
+                <h3>Matrix & Det Hacks</h3>
+                <ul>
+                    <li>$|kA| = k^n|A|$ ($n$ = order)</li>
+                    <li>$|adj A| = |A|^{n-1}$</li>
+                    <li>$|A \cdot adj A| = |A|^n$</li>
+                    <li>Skew-symmetric matrix of ODD order always has determinant = 0.</li>
+                </ul>
+                <div class="math-box">
+                    $A^{-1} = \frac{1}{|A|} adj A$
+                </div>
+            </div>
+
+            <!-- VECTOR PROJECTION -->
+            <div class="hack-card">
+                <h3>Vector Super-Fast</h3>
+                <ul>
+                    <li>Projection of $\vec{a}$ on $\vec{b} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}$</li>
+                    <li>Unit vector perpendicular to BOTH $\vec{a}$ and $\vec{b} = \pm \frac{\vec{a} \times
+                        \vec{b}}{|\vec{a} \times \vec{b}|}$</li>
+                    <li>If $\vec{a}, \vec{b}, \vec{c}$ are coplanar $\implies [\vec{a} \vec{b} \vec{c}] = 0$.</li>
+                </ul>
+            </div>
+
+            <!-- 3D DISTANCE HACK -->
+            <div class="hack-card">
+                <h3>3D Shortcut</h3>
+                <p class="warning-tag">100% Asked</p>
+                <ul>
+                    <li>Distance of point $(x_1, y_1, z_1)$ from plane $ax+by+cz+d=0$:</li>
+                    <div class="math-box">
+                        $d = \frac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2+b^2+c^2}}$
+                    </div>
+                    <li>Angle between 2 planes = Angle between their normals.</li>
+                </ul>
+            </div>
+
+            <!-- PROBABILITY HACKS -->
+            <div class="hack-card">
+                <h3>Probability Logic</h3>
+                <ul>
+                    <li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
+                    <li>Independent Events: $P(A \cap B) = P(A) \cdot P(B)$</li>
+                    <li>$P(A|B) + P(A'|B) = 1$</li>
+                </ul>
+                <div class="pro-tip">If events are mutually exclusive, $P(A \cap B) = 0$.</div>
+            </div>
+
+            <!-- DERIVATIVE HACKS -->
+            <div class="hack-card">
+                <h3>Limit & Diff Hacks</h3>
+                <ul>
+                    <li>$\frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}$</li>
+                    <li>$\frac{d}{dx}(|x|) = \frac{x}{|x|}$ (for $x \neq 0$)</li>
+                    <li>$\frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}$</li>
+                </ul>
+                <div class="pro-tip">If $y = \sqrt{f(x) + \sqrt{f(x) + \dots}}$, then $\frac{dy}{dx} =
+                    \frac{f'(x)}{2y-1}$.</div>
+            </div>
+
+            <!-- RELATIONS HACK -->
+            <div class="hack-card">
+                <h3>Relation Counting</h3>
+                <ul>
+                    <li>Total relations on set $A$(n) = $2^{n^2}$</li>
+                    <li>Total Reflexive relations = $2^{n^2 - n}$</li>
+                    <li>Total Symmetric relations = $2^{n(n+1)/2}$</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p><strong>Quick Revision Shield</strong> - Built for Ishu ⚡</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Shortcuts used by toppers to save time! 80/80 Target. 🎯
+            </p>
+        </div>
     </div>
+
 </body>
 
 </html>
